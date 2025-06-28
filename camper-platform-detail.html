@@ -54,10 +54,29 @@
     </div>
     <section id="portfolio-details" class="portfolio-details section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-          <div class="col-lg-8">
+        <!-- SLIDER FULL WIDTH AT TOP -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-12">
             <div class="portfolio-details-slider swiper init-swiper">
-              <script type="application/json" class="swiper-config">{"loop":true,"speed":600,"autoplay":{"delay":5000},"slidesPerView":"auto","pagination":{"el":".swiper-pagination","type":"bullets","clickable":true}}</script>
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": 1,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
+                  }
+                }
+              </script>
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide"><img src="assets/App8/c1.png" alt=""></div>
                 <div class="swiper-slide"><img src="assets/App8/c2.png" alt=""></div>
@@ -84,11 +103,16 @@
                 <div class="swiper-slide"><img src="assets/App8/c23.png" alt=""></div>
                 <div class="swiper-slide"><img src="assets/App8/c24.png" alt=""></div>
               </div>
+              <div class="swiper-button-prev"><i class="bi bi-chevron-left"></i></div>
+              <div class="swiper-button-next"><i class="bi bi-chevron-right"></i></div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+        </div>
+        <!-- DETAILS BELOW SLIDER -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-12">
+            <div class="portfolio-info mb-4" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong>: Camper Rental & Social Platform</li>

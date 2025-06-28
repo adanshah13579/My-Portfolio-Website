@@ -87,12 +87,10 @@
     <section id="portfolio-details" class="portfolio-details section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
+        <!-- SLIDER FULL WIDTH AT TOP -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-12">
             <div class="portfolio-details-slider swiper init-swiper">
-
               <script type="application/json" class="swiper-config">
                 {
                   "loop": true,
@@ -100,7 +98,7 @@
                   "autoplay": {
                     "delay": 5000
                   },
-                  "slidesPerView": "auto",
+                  "slidesPerView": 1,
                   "pagination": {
                     "el": ".swiper-pagination",
                     "type": "bullets",
@@ -112,41 +110,36 @@
                   }
                 }
               </script>
-
               <div class="swiper-wrapper align-items-center">
-
                 <div class="swiper-slide">
                   <img src="assets/App2/m1.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/App2/m2.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/App2/m3.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/App2/m4.png" alt="">
                 </div>
                 <div class="swiper-slide">
                   <img src="assets/App2/m5.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/App2/m6.png" alt="">
                 </div>
-
               </div>
-              <div class="swiper-button-prev"><i class="bi bi-chevron-left"></i></div>
-              <div class="swiper-button-next"><i class="bi bi-chevron-right"></i></div>
+              <div class="swiper-button-prev"><i class="bi bi-arrow-left"></i></div>
+              <div class="swiper-button-next"><i class="bi bi-arrow-right"></i></div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+        </div>
+        <!-- DETAILS BELOW SLIDER -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-12">
+            <div class="portfolio-info mb-4" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong>: Admin Dashboard</li>
@@ -167,9 +160,7 @@
               </p>
             </div>
           </div>
-
         </div>
-
       </div>
 
     </section><!-- /Portfolio Details Section -->

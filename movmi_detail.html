@@ -88,12 +88,10 @@
     <section id="portfolio-details" class="portfolio-details section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
+        <!-- SLIDER FULL WIDTH AT TOP -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-12">
             <div class="portfolio-details-slider swiper init-swiper">
-
               <script type="application/json" class="swiper-config">
                 {
                   "loop": true,
@@ -101,36 +99,34 @@
                   "autoplay": {
                     "delay": 5000
                   },
-                  "slidesPerView": "auto",
+                  "slidesPerView": 1,
                   "pagination": {
                     "el": ".swiper-pagination",
                     "type": "bullets",
                     "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
                   }
                 }
               </script>
-
               <div class="swiper-wrapper align-items-center">
-
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m1.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m2.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m3.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m4.png" alt="">
                 </div>
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m5.png" alt="">
                 </div>
-
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m6.png" alt="">
                 </div>
@@ -146,26 +142,27 @@
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/m10.png" alt="">
                 </div>
-
               </div>
+              <div class="swiper-button-prev"><i class="bi bi-chevron-left"></i></div>
+              <div class="swiper-button-next"><i class="bi bi-chevron-right"></i></div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+        </div>
+        <!-- DETAILS BELOW SLIDER -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-12">
+            <div class="portfolio-info mb-4" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong>: MarketPlace</li>
-                
-                
                 <li><strong>Project URL</strong>: <a href="#">https://lnkd.in/dKS-7Czr</a></li>
               </ul>
             </div>
             <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>  Project detail</h2>
+              <h2>Project detail</h2>
               <p>
-                Marketplace Development: Designed and developed a featurerich marketplace platform using the PERN stack (PostgreSQL,
+                Marketplace Development: Designed and developed a feature-rich marketplace platform using the PERN stack (PostgreSQL,
 Express.js, React, Node.js), Tailwind CSS, ShadCN UI, and
 Redux. The platform supports product listing, buying, selling,
 shopping cart functionality, reviews, comments, and detailed
@@ -179,9 +176,7 @@ architecture to ensure an engaging and efficient user experience.
               </p>
             </div>
           </div>
-
         </div>
-
       </div>
 
     </section><!-- /Portfolio Details Section -->

@@ -19,11 +19,11 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
+  --background-color: #000000; /* Background color for the entire website, including individual sections */
+  --default-color: #ffffff; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --surface-color: #111111; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
@@ -40,8 +40,8 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4fafd;
-  --surface-color: #ffffff;
+  --background-color: #111111;
+  --surface-color: #1a1a1a;
 }
 
 .dark-background {
@@ -692,13 +692,13 @@ section,
 }
 
 .skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
+  padding: 10px 0;
   margin: 0 0 6px 0;
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: var(--heading-font);
+  font-family: "Poppins", sans-serif;
+  color: var(--heading-color);
 }
 
 .skills .progress .skill .val {
@@ -709,6 +709,7 @@ section,
 .skills .progress-bar-wrap {
   background: color-mix(in srgb, var(--default-color), transparent 90%);
   height: 10px;
+  margin-top: -40px;
 }
 
 .skills .progress-bar {
@@ -716,6 +717,118 @@ section,
   height: 10px;
   transition: 0.9s;
   background-color: var(--accent-color);
+}
+
+/* Skill Cards Styles */
+.skill-card {
+  background: var(--surface-color);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card .skill-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.skill-card .skill-icon i {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.skill-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: var(--heading-font);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.skill-tag:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.skill-tag .tech-logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.skill-tag i {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments for skill cards */
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 20px;
+  }
+  
+  .skill-card h4 {
+    font-size: 1.1rem;
+  }
+  
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+  
+  .skill-tag .tech-logo {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .skill-tags {
+    gap: 6px;
+  }
+  
+  .skill-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+  
+  .skill-tag .tech-logo {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1145,75 +1258,264 @@ section,
 # Portfolio Details Section
 --------------------------------------------------------------*/
 .portfolio-details .portfolio-details-slider {
-  width: 100%;
-  max-width: 100vw;
-  height: 500px;
-  min-height: 320px;
-  background: #f8fafc;
-  border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(20, 157, 221, 0.10);
   overflow: hidden;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  background: var(--surface-color);
+  max-height: 600px; /* Control maximum height */
+  height: auto;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-wrapper {
   align-items: center;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-slide img {
-  object-fit: contain;
-  width: 100%;
-  height: 320px;
-  max-height: 320px;
-  border-radius: 8px;
-  background: #fff;
-}
-
-/* Swiper navigation arrows */
-.portfolio-details .portfolio-details-slider .swiper-button-next,
-.portfolio-details .portfolio-details-slider .swiper-button-prev {
-  color: var(--accent-color);
-  background: rgba(255,255,255,0.85);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+.portfolio-details .portfolio-details-slider .swiper-slide {
+  text-align: center;
+  height: auto;
+  max-height: 600px; /* Control maximum height */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  box-shadow: 0 2px 8px rgba(20,157,221,0.08);
-  transition: background 0.2s, color 0.2s;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-slide img {
+  max-width: 100%;
+  max-height: 600px; /* Control maximum height */
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-button-next,
+.portfolio-details .portfolio-details-slider .swiper-button-prev {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  color: var(--contrast-color);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
   z-index: 10;
 }
+
 .portfolio-details .portfolio-details-slider .swiper-button-next:hover,
 .portfolio-details .portfolio-details-slider .swiper-button-prev:hover {
-  background: var(--accent-color);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
 }
+
 .portfolio-details .portfolio-details-slider .swiper-button-next {
-  right: 10px;
+  right: 20px;
 }
+
 .portfolio-details .portfolio-details-slider .swiper-button-prev {
-  left: 10px;
+  left: 20px;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background: var(--accent-color);
+  transform: scale(1.2);
+}
+
+/* Portfolio Info and Description Styles */
+.portfolio-details .portfolio-info {
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio-details .portfolio-info ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-details .portfolio-info ul li:last-child {
+  border-bottom: none;
+}
+
+.portfolio-details .portfolio-info ul li strong {
+  min-width: 120px;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-right: 15px;
+}
+
+.portfolio-details .portfolio-description {
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  margin-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+}
+
+.portfolio-details .portfolio-description p {
+  line-height: 1.8;
+  color: var(--default-color);
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: var(--default-color);
+}
+
+/* Responsive Design for Portfolio Details */
+@media (max-width: 1200px) {
+  .portfolio-details .portfolio-details-slider {
+    max-height: 500px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide {
+    max-height: 500px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide img {
+    max-height: 500px;
+  }
 }
 
 @media (max-width: 768px) {
   .portfolio-details .portfolio-details-slider {
-    height: 220px;
-    max-height: 220px;
-    min-height: 180px;
+    max-height: 400px;
   }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide {
+    max-height: 400px;
+  }
+  
   .portfolio-details .portfolio-details-slider .swiper-slide img {
-    height: 180px;
-    max-height: 180px;
+    max-height: 400px;
   }
+  
   .portfolio-details .portfolio-details-slider .swiper-button-next,
   .portfolio-details .portfolio-details-slider .swiper-button-prev {
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-button-next {
+    right: 10px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-button-prev {
+    left: 10px;
+  }
+  
+  .portfolio-details .portfolio-info,
+  .portfolio-details .portfolio-description {
+    padding: 20px;
+  }
+  
+  .portfolio-details .portfolio-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  .portfolio-details .portfolio-description h2 {
+    font-size: 1.5rem;
+  }
+  
+  .portfolio-details .portfolio-info ul li strong {
+    min-width: 100px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-details .portfolio-details-slider {
+    max-height: 300px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide {
+    max-height: 300px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-slide img {
+    max-height: 300px;
+  }
+  
+  .portfolio-details .portfolio-details-slider .swiper-button-next,
+  .portfolio-details .portfolio-details-slider .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .portfolio-details .portfolio-info,
+  .portfolio-details .portfolio-description {
+    padding: 15px;
+  }
+  
+  .portfolio-details .portfolio-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .portfolio-details .portfolio-description h2 {
+    font-size: 1.3rem;
+  }
+  
+  .portfolio-details .portfolio-info ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .portfolio-details .portfolio-info ul li strong {
+    min-width: auto;
+    margin-right: 0;
+    margin-bottom: 5px;
   }
 }
