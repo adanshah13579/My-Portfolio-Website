@@ -211,6 +211,14 @@ h6 {
   background: var(--accent-color);
 }
 
+.header .social-links a.linkedin:hover {
+  background: #0077b5;
+}
+
+.header .social-links a.github:hover {
+  background: #181717;
+}
+
 @media (min-width: 1200px) {
 
   .header~main,
