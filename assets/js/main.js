@@ -19,7 +19,9 @@
     headerToggleBtn.classList.toggle('bi-list');
     headerToggleBtn.classList.toggle('bi-x');
   }
-  headerToggleBtn.addEventListener('click', headerToggle);
+  if (headerToggleBtn) {
+    headerToggleBtn.addEventListener('click', headerToggle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -65,16 +67,17 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
-
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
+    window.addEventListener('load', toggleScrollTop);
+    document.addEventListener('scroll', toggleScrollTop);
+  }
 
   /**
    * Animation on scroll function and init
@@ -128,11 +131,24 @@
   });
 
   /**
-   * Initiate glightbox
+   * Initiate glightbox (script is deferred in index.html — init when available, once)
    */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+  var glightboxInitialized = false;
+  function initGLightboxWhenReady() {
+    if (glightboxInitialized || typeof GLightbox === 'undefined') {
+      return;
+    }
+    glightboxInitialized = true;
+    GLightbox({
+      selector: '.glightbox'
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGLightboxWhenReady);
+  } else {
+    initGLightboxWhenReady();
+  }
+  window.addEventListener('load', initGLightboxWhenReady);
 
   /**
    * Init isotope layout and filters
@@ -225,5 +241,66 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+   * App project videos: click cover to reveal player; keep muted (no sound)
+   * Uses delegation so clicks work even if AOS or layout delays hit targets
+   */
+  var appVideoCardsInited = false;
+  function initAppVideoCards() {
+    var section = document.getElementById('portfolio-apps');
+    if (!section || appVideoCardsInited) return;
+    appVideoCardsInited = true;
+
+    function keepSilent(video) {
+      video.muted = true;
+      video.volume = 0;
+    }
+
+    function revealAndPlay(card) {
+      var cover = card.querySelector('.portfolio-app-video-cover');
+      var video = card.querySelector('.portfolio-app-video-el');
+      if (!cover || !video || cover.style.display === 'none') return;
+      cover.setAttribute('hidden', '');
+      cover.style.display = 'none';
+      video.style.display = 'block';
+      keepSilent(video);
+      video.play().catch(function() {});
+    }
+
+    section.addEventListener('click', function(e) {
+      var cover = e.target.closest('.portfolio-app-video-cover');
+      if (!cover || cover.hasAttribute('hidden')) return;
+      var card = cover.closest('.portfolio-app-video-card');
+      if (!card || !section.contains(card)) return;
+      e.preventDefault();
+      revealAndPlay(card);
+    });
+
+    section.addEventListener('keydown', function(e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var cover = e.target.closest('.portfolio-app-video-cover');
+      if (!cover || cover.hasAttribute('hidden')) return;
+      var card = cover.closest('.portfolio-app-video-card');
+      if (!card || !section.contains(card)) return;
+      e.preventDefault();
+      revealAndPlay(card);
+    });
+
+    section.querySelectorAll('.portfolio-app-video-el').forEach(function(video) {
+      video.addEventListener('volumechange', function() {
+        if (!video.muted || video.volume > 0) {
+          video.muted = true;
+          video.volume = 0;
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAppVideoCards);
+  } else {
+    initAppVideoCards();
+  }
 
 })();
