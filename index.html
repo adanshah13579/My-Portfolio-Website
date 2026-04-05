@@ -492,24 +492,42 @@ I specialize in building scalable, performant applications that prioritize user 
 
       <div class="container section-title" data-aos="fade-up">
         <h2>Website projects</h2>
-        <p>Every project in one place — hover a card for View detail.</p>
+        <p>Use the tabs to jump to <strong>live Netlify demos</strong>, or browse everything. Cards with a <span class="portfolio-live-inline-hint">Live</span> badge open the deployed site — hover (or focus) for <em>Open live site</em> and case study.</p>
       </div>
 
       <div class="container">
+        <div class="portfolio-live-filter d-flex flex-wrap justify-content-center align-items-center gap-2 mb-4" role="tablist" aria-label="Filter website projects">
+          <button type="button" class="btn portfolio-live-filter__btn active" data-portfolio-filter="all" role="tab" aria-selected="true">All projects</button>
+          <button type="button" class="btn portfolio-live-filter__btn" data-portfolio-filter="live" role="tab" aria-selected="false">Live on Netlify <span class="portfolio-live-filter__count" aria-hidden="true">3</span></button>
+        </div>
         <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-4 col-md-6 portfolio-item">
-              <div class="portfolio-content portfolio-content--detail-hover h-100">
-                <img src="assets/img/portfolio/ee.png" class="img-fluid" alt="Project 1" loading="lazy">
+            <div class="col-lg-4 col-md-6 portfolio-item" data-live="true">
+              <div class="portfolio-content portfolio-content--detail-hover portfolio-content--has-live h-100">
+                <a href="https://hpm-testing.netlify.app/" class="portfolio-live-corner" target="_blank" rel="noopener noreferrer" aria-label="Open HPM Testing live demo on Netlify">
+                  <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+                  <span>Live</span>
+                </a>
+                <img src="assets/img/portfolio/ee.png" class="img-fluid" alt="HPM Testing" loading="lazy">
                 <div class="portfolio-info portfolio-info--detail-only">
-                  <a href="portfolio-details.html" class="btn-view-detail">View detail</a>
+                  <div class="portfolio-card-actions">
+                    <a href="https://hpm-testing.netlify.app/" class="btn-live-demo" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Open live site</a>
+                    <a href="hpm-testing-detail.html" class="btn-view-detail btn-view-detail--secondary">View detail</a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 portfolio-item">
-              <div class="portfolio-content portfolio-content--detail-hover h-100">
+            <div class="col-lg-4 col-md-6 portfolio-item" data-live="true">
+              <div class="portfolio-content portfolio-content--detail-hover portfolio-content--has-live h-100">
+                <a href="https://adan-streaming-ui.netlify.app/" class="portfolio-live-corner" target="_blank" rel="noopener noreferrer" aria-label="Open streaming UI live demo on Netlify">
+                  <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+                  <span>Live</span>
+                </a>
                 <img src="assets/App1/d1.png" class="img-fluid" alt="Streaming Platform" loading="lazy">
                 <div class="portfolio-info portfolio-info--detail-only">
-                  <a href="portfolio-details.html" class="btn-view-detail">View detail</a>
+                  <div class="portfolio-card-actions">
+                    <a href="https://adan-streaming-ui.netlify.app/" class="btn-live-demo" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Open live site</a>
+                    <a href="portfolio-details.html" class="btn-view-detail btn-view-detail--secondary">View detail</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -545,11 +563,18 @@ I specialize in building scalable, performant applications that prioritize user 
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 portfolio-item">
-              <div class="portfolio-content portfolio-content--detail-hover h-100">
+            <div class="col-lg-4 col-md-6 portfolio-item" data-live="true">
+              <div class="portfolio-content portfolio-content--detail-hover portfolio-content--has-live h-100">
+                <a href="https://realstate-boom.netlify.app/" class="portfolio-live-corner" target="_blank" rel="noopener noreferrer" aria-label="Open Soft Market real estate live demo on Netlify">
+                  <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i>
+                  <span>Live</span>
+                </a>
                 <img src="assets/App6/o1.png" class="img-fluid" alt="Soft Market" loading="lazy">
                 <div class="portfolio-info portfolio-info--detail-only">
-                  <a href="soft-market-detail.html" class="btn-view-detail">View detail</a>
+                  <div class="portfolio-card-actions">
+                    <a href="https://realstate-boom.netlify.app/" class="btn-live-demo" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Open live site</a>
+                    <a href="soft-market-detail.html" class="btn-view-detail btn-view-detail--secondary">View detail</a>
+                  </div>
                 </div>
               </div>
             </div>

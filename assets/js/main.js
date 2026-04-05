@@ -297,10 +297,44 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAppVideoCards);
-  } else {
+  /**
+   * Website projects: filter All vs Live (Netlify) demos
+   */
+  function initPortfolioWebsiteLiveFilter() {
+    var section = document.getElementById('portfolio-websites');
+    if (!section) return;
+    var bar = section.querySelector('.portfolio-live-filter');
+    if (!bar) return;
+    var items = section.querySelectorAll('.portfolio-item');
+    bar.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-portfolio-filter]');
+      if (!btn || !bar.contains(btn)) return;
+      var filter = btn.getAttribute('data-portfolio-filter');
+      bar.querySelectorAll('[data-portfolio-filter]').forEach(function(b) {
+        var on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      items.forEach(function(item) {
+        var isLive = item.getAttribute('data-live') === 'true';
+        if (filter === 'all') {
+          item.classList.remove('portfolio-item--filtered-out');
+        } else {
+          item.classList.toggle('portfolio-item--filtered-out', !isLive);
+        }
+      });
+    });
+  }
+
+  function bootClientFeatures() {
     initAppVideoCards();
+    initPortfolioWebsiteLiveFilter();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootClientFeatures);
+  } else {
+    bootClientFeatures();
   }
 
 })();
