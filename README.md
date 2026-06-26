@@ -1,6 +1,6 @@
 # My Portfolio Website
 
-A professional portfolio website showcasing the work of Adan Shah, Full Stack Developer.
+A professional portfolio website showcasing the work of Adan Shah, Frontend Engineer with full-stack experience.
 
 ## Features
 
