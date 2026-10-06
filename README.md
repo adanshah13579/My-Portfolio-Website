@@ -32,7 +32,7 @@ A professional portfolio website showcasing the work of Adan Shah, Frontend Engi
 
 - **Email**: adanshah13579@gmail.com
 - **Phone**: +92 3255246937
-- **Location**: Karachi, Pakistan
+- **Location**: Haripur & Karachi, Pakistan (Haider Brothers House, Post Office Jahal Bala, Village Thipra, Haripur)
 - **LinkedIn**: [syed-adan-murad-shah-16925a279](https://www.linkedin.com/in/syed-adan-murad-shah-16925a279)
 
 ## License
